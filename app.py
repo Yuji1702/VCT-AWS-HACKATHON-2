@@ -1,19 +1,16 @@
 import os
-from flask import Flask
-
-app = Flask(__name__)
-
-# Setting the SECRET_KEY for your Flask app
-app.config['SECRET_KEY'] = os.urandom(24)  # Generates a random secret key each time the app runs
-
-# Alternatively, for a more persistent key, you can hardcode it like this:
-# app.config['SECRET_KEY'] = 'your_hardcoded_secret_key'
-
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, send
 from valorant_data_collector import ValorantDataCollector, collect_data_for_player  # Import your scraping functions
 import logging
 
+app = Flask(__name__)
+
+# Setting the SECRET_KEY for your Flask app
+# Use the environment variable in production or a fallback key for local development
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'fallback-secret-key')  # Replace 'fallback-secret-key' with a secure key for local dev
+
+# Initialize SocketIO
 socketio = SocketIO(app)
 
 # Initialize the data collector
