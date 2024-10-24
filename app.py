@@ -7,8 +7,9 @@ import logging
 app = Flask(__name__)
 
 # Setting the SECRET_KEY for your Flask app
+from env import SECRET_KEY
 # Use the environment variable in production or a fallback key for local development
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'fallback-secret-key')  # Replace 'fallback-secret-key' with a secure key for local dev
+app.config['SECRET_KEY']  # Replace 'fallback-secret-key' with a secure key for local dev
 
 # Initialize SocketIO
 socketio = SocketIO(app)
