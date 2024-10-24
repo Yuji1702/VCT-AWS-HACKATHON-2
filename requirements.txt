@@ -1,4 +1,5 @@
 Flask
 flask-socketio
+requests
+beautifulsoup4
 gunicorn
-your_other_dependencies
