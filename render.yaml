@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: valorant-chatbot
+    env: python
+    region: oregon
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: SECRET_KEY
+        value: 'your-secure-generated-key-here'
