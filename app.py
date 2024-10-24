@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, send
-from valorant_data_collector import ValorantDataCollector, collect_data_for_player  # Import your scraping functions
+from valorant_data_collector import ValorantDataCollector  # Ensure correct import
 import logging
 
 app = Flask(__name__)
